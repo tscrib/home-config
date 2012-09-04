@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Credits goes to http://stackoverflow.com/questions/1589114/opening-a-new-terminal-tab-in-osxsnow-leopard-with-the-opening-terminal-window#answer-7911097
-# I just slightly modified it to take an argument.
+# Tweak credit to https://gist.github.com/2492064
 
 new_tab() {
         pwd=`pwd`
