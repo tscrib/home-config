@@ -12,7 +12,8 @@ new_tab() {
         > /dev/null
 }
 
-init(){
+# Init the dev environment for the current directory
+idev(){
     tabname main
 	new_tab 'tabname console;rails c --sandbox'
 	new_tab 'tabname server;rails s'
