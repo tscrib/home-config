@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# Credits goes to http://stackoverflow.com/questions/1589114/opening-a-new-terminal-tab-in-osxsnow-leopard-with-the-opening-terminal-window#answer-7911097
+# I just slightly modified it to take an argument.
+
+new_tab() {
+        pwd=`pwd`
+        osascript -e "tell application \"Terminal\"" \
+        -e "tell application \"System Events\" to keystroke \"t\" using {command down}" \
+        -e "do script \"cd $pwd; clear; $1;\" in front window" \
+        -e "end tell"
+        > /dev/null
+}
+
+init(){
+    tabname main
+	new_tab 'tabname console;rails c --sandbox'
+	new_tab 'tabname server;rails s'
+	new_tab 'tabname spork;spork'
+	new_tab "postgres -D /usr/local/var/postgres"
+	new_tab 'tabname rake;rake'
+}
+
+# Credit to http://thelucid.com/2012/01/04/naming-your-terminal-tabs-in-osx-lion/
+function tabname {
+  printf "\e]1;$1\a"
+}
+
